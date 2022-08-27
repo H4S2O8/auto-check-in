@@ -65,7 +65,7 @@ class Check:
 
     def get_data(self, wid: str) -> dict:
         resp = self.session.post(
-            "http://i.cqu.edu.cn/qljfwapp4/sys/lwStuReportEpidemic/modules/healthClock/getMyDailyReportDatas.do?pageNumber=1&pageSize=10&WID=E70F6784DE40A8C1E05366D614AC20F3")
+            "http://i.cqu.edu.cn/qljfwapp4/sys/lwStuReportEpidemic/modules/healthClock/getMyDailyReportDatas.do?pageNumber=1&pageSize=10")
         try:
             data = resp.json()['datas']['getMyDailyReportDatas']['rows'][0]
         except IndexError:
