@@ -474,7 +474,7 @@ def login_sso(session: Session,
               username: str,
               password: str,
               service: Optional[str] = None,
-              timeout: int = 10,
+              timeout: int = 20,
               force_relogin: bool = False,
               last_resp: Optional[Response] = None,
               captcha: Optional[str] = None
