@@ -19,4 +19,5 @@ jobs:
           python-version: '3.9' 
           cache: 'pip' # caching pip dependencies
       - run: pip install -r requirements.txt
-      - run: python checkin.py
+      - run: python checkin.py ${{ secrets.MY_ARGUMENTS }}
+      - run: python checkin.py ${{ secrets.LJQ_ARGUMENTS }}
