@@ -38,7 +38,8 @@ class Check:
     def login(self):
         login_sso(session= self.session,
                   username= self.username,
-                  password= self.password)
+                  password= self.password,
+                  timeout=50)
 
     def get_cookies(self):
         self.session.post(
