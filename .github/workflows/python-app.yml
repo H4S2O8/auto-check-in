@@ -22,6 +22,8 @@ jobs:
     - uses: szenius/set-timezone@v1.0
       with:
         timezoneLinux: "Asia/Singapore"
+        timezoneMacos: "Asia/Singapore"
+        timezoneWindows: "Singapore Standard Time"
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
       with:
