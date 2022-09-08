@@ -28,13 +28,14 @@ class InfoException(Exception):
 
 
 class Check:
-    def __init__(self, username: str, password: str, server_chan_subscription_key: str):
+    def __init__(self, username: str, password: str, server_chan_subscription_key: str, push_deer_key: str):
         self.session = Session()
         self.username = username
         self.password = password
         self.result = ""
         self.info = ""
         self.server_chan_subscription_key = server_chan_subscription_key
+        self.push_deer_key = push_deer_key
 
     def login(self):
         login_sso(session= self.session,
@@ -151,12 +152,13 @@ class Check:
         finally:
             requests.post(url=f"https://sctapi.ftqq.com/{self.server_chan_subscription_key}.send",
                           data={"text": self.result, "desp": self.info})
-            requests.get(f"https://api2.pushdeer.com/message/push?pushkey=key&text=今日打卡成功")
+            requests.get(f"https://api2.pushdeer.com/message/push?pushkey={self.push_deer_key}&text=今日打卡成功")
 
 if __name__ == '__main__':
     user_name = sys.argv[1]
     password = sys.argv[2]
     server_chan_subscription_key = sys.argv[3]
+    push_deer_key = sys.argv[4]
 
-    check =Check(user_name, password, server_chan_subscription_key)
+    check =Check(user_name, password, server_chan_subscription_key, push_deer_key)
     check.main()
