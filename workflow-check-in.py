@@ -151,7 +151,7 @@ class Check:
         finally:
             requests.post(url=f"https://sctapi.ftqq.com/{self.server_chan_subscription_key}.send",
                           data={"text": self.result, "desp": self.info})
-            request.get(f"https://api2.pushdeer.com/message/push?pushkey=key&text=今日打卡成功")
+            requests.get(f"https://api2.pushdeer.com/message/push?pushkey=key&text=今日打卡成功")
 
 if __name__ == '__main__':
     user_name = sys.argv[1]
