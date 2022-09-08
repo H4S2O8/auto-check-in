@@ -1,1 +1,22 @@
+name: daily report
 
+on:
+  schedule:
+  - cron: 0 1 * * * 
+
+jobs:
+  stale:
+
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.9' 
+          cache: 'pip' # caching pip dependencies
+      - run: pip install -r requirements.txt
+      - run: python checkin.py
