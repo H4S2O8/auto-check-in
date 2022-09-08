@@ -19,6 +19,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - uses: szenius/set-timezone@v1.0
+      with:
+        timezoneLinux: "Asia/Shanghai"
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
       with:
